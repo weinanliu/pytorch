@@ -878,6 +878,9 @@ bool ListType::isSubtypeOfExt(const Type& rhs_, std::ostream* why_not) const {
   if (rhs_.kind() == AnyListType::Kind) {
     return true;
   }
+  if (auto rhs = rhs_.castRaw<ListType>()) {
+    return getElementType()->isSubtypeOfExt(*rhs->getElementType(), why_not);
+  }
   return false;
 }
 

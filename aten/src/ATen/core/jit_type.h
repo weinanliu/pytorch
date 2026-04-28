@@ -859,6 +859,8 @@ struct TORCH_API TensorType : public SharedType {
 
 struct ListType;
 using ListTypePtr = std::shared_ptr<ListType>;
+// Subtype hierarchy for Optional:
+//     - List[T] <: List[R] iff T <: R
 struct TORCH_API ListType
     : public SingleElementType<TypeKind::ListType, ListType> {
   // It's not exactly a singleton, but there should be exactly one instance of
