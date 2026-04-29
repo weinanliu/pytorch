@@ -859,7 +859,7 @@ struct TORCH_API TensorType : public SharedType {
 
 struct ListType;
 using ListTypePtr = std::shared_ptr<ListType>;
-// Subtype hierarchy for Optional:
+// Subtype hierarchy for List:
 //     - List[T] <: List[R] iff T <: R
 struct TORCH_API ListType
     : public SingleElementType<TypeKind::ListType, ListType> {
